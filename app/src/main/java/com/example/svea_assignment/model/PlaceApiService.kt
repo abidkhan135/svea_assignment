@@ -18,7 +18,7 @@ class PlaceApiService {
         .build()
         .create(GetPlacesApi2::class.java)
 
-    fun getAllPlaces(): Call<Places> {
+    fun getAllPlaces(): Single<Places> {
         return api.getAllPlaces()
     }
 
@@ -30,5 +30,5 @@ interface GetPlacesApi2 {
     fun getAllPlaces(
         @Query("meAppId") id: Int = 50,
         @Query("records") records: Int = 500
-    ): Call<Places>
+    ): Single<Places>
 }

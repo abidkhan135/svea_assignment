@@ -10,5 +10,5 @@ interface GetPlacesApi {
     fun getAllPlaces(
         @Query("meAppId") id: Int = 50,
         @Query("records") records: Int = 500
-    ): Call<Places>
+    ): Single<Places>
 }
