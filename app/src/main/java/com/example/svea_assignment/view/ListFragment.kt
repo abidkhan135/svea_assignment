@@ -24,7 +24,8 @@ class ListFragment : Fragment() {
     private val placesListDataObserver = Observer<List<Place>> { list ->
         list?.let {
             placeList.visibility = View.VISIBLE
-            println("Inside list fragment $it")
+            println("Inside list fragment "+it[0].name)
+            listAdapter.updateAnimalList(it)
            // listAdapter.updateAnimalList(it)
         }
 
@@ -59,8 +60,10 @@ class ListFragment : Fragment() {
 
         viewModel.refresh()
         placeList.apply {
-            layoutManager = LinearLayoutManager(context)
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            println("Inside Aplly"+viewModel.place.value)
             adapter = listAdapter
+            println("Inside Aplly"+viewModel.place.value)
         }
 
     }

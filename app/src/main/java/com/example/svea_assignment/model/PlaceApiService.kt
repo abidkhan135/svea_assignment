@@ -18,7 +18,7 @@ class PlaceApiService {
         .build()
         .create(GetPlacesApi2::class.java)
 
-    fun getAllPlaces(): Single<Places> {
+    fun getAllPlaces():  Single<Places> {
         return api.getAllPlaces()
     }
 

@@ -41,12 +41,12 @@ class ListViewModel(applicaiton: Application) : AndroidViewModel(applicaiton) {
             apiService.getAllPlaces()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(object : DisposableSingleObserver<ServerResponse>() {
-                    override fun onSuccess(list: ServerResponse) {
+                .subscribeWith(object : DisposableSingleObserver<Places>() {
+                    override fun onSuccess(list: Places) {
                         loadError.value = false
-                       // place.value = list.places
-                      //  println("the list if --->$list")
-                        println("the list if --->${list.places}")
+                       place.value = list.place
+                     //   println("the list if --->$list")
+                        println("the list if --->${list.place}")
                         loading.value = false
                     }
 
