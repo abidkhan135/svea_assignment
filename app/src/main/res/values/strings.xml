@@ -3,4 +3,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="description">Description :</string>
+    <string name="latitude">Latitude :</string>
+    <string name="longitute">Longitute :</string>
+    <string name="Error">Error while loading the list</string>
 </resources>

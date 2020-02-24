@@ -8,12 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-
 import com.example.svea_assignment.R
 import com.example.svea_assignment.model.Place
-import com.example.svea_assignment.model.Places
 import com.example.svea_assignment.viewmodel.ListViewModel
 import kotlinx.android.synthetic.main.fragment_list.*
 
@@ -24,11 +21,8 @@ class ListFragment : Fragment() {
     private val placesListDataObserver = Observer<List<Place>> { list ->
         list?.let {
             placeList.visibility = View.VISIBLE
-            println("Inside list fragment "+it[0].name)
             listAdapter.updateAnimalList(it)
-           // listAdapter.updateAnimalList(it)
         }
-
     }
     private val errorLiveDataObserver = Observer<Boolean> { iserror ->
         loadError.visibility = if (iserror) View.VISIBLE else View.GONE
@@ -40,7 +34,6 @@ class ListFragment : Fragment() {
             placeList.visibility = View.GONE
             loadError.visibility = View.GONE
         }
-
     }
 
     override fun onCreateView(
@@ -52,19 +45,14 @@ class ListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         viewModel = ViewModelProviders.of(this).get(ListViewModel::class.java)
         viewModel.place.observe(this, placesListDataObserver)
         viewModel.loading.observe(this, loadingLiveDataObserver)
         viewModel.loadError.observe(this, errorLiveDataObserver)
-
         viewModel.refresh()
         placeList.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-            println("Inside Aplly"+viewModel.place.value)
             adapter = listAdapter
-            println("Inside Aplly"+viewModel.place.value)
         }
-
     }
 }

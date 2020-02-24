@@ -26,7 +26,7 @@
         android:id="@+id/loadError"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Error while loading the list"
+        android:text="@string/Error"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

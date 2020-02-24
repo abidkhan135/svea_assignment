@@ -7,11 +7,10 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.svea_assignment.R
 import com.example.svea_assignment.model.Place
-import com.example.svea_assignment.model.Places
-import kotlinx.android.synthetic.main.fragment_list.view.*
 import kotlinx.android.synthetic.main.recycler_item.view.*
 
-class PlacesAdapter(private var places: ArrayList<Place>) : RecyclerView.Adapter<PlacesAdapter.ViewHolder>() {
+class PlacesAdapter(private var places: ArrayList<Place>) :
+    RecyclerView.Adapter<PlacesAdapter.ViewHolder>() {
 
     fun updateAnimalList(newplaceList: List<Place>) {
         places.clear()
@@ -30,13 +29,10 @@ class PlacesAdapter(private var places: ArrayList<Place>) : RecyclerView.Adapter
     override fun getItemCount(): Int = places.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        println("THe name is "+places[position].name)
         holder.itemView.name.text = places[position].name
-        holder.itemView.description.text = places[position].description
         holder.itemView.placeLayout.setOnClickListener {
-            val action = ListFragmentDirections.actionDetail()
+            val action = ListFragmentDirections.actionDetail(places[position])
             Navigation.findNavController(holder.itemView).navigate(action)
         }
-
     }
 }
