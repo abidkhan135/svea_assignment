@@ -2,15 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:id="@+id/placeLayout"
-    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/white">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/name"
+        style="@style/Places"
         app:fontFamily="@font/montserrat_bold"
-        tools:text="name"
-        style="@style/Place" />
+        tools:text="name" />
 </LinearLayout>
